@@ -17,6 +17,7 @@ function load(app, fn){
   var home = traceur.require(__dirname + '/../routes/home.js');
   var users = traceur.require(__dirname + '/../routes/users.js');
   var entries = traceur.require(__dirname + '/../routes/entries.js');
+  var virtues = traceur.require(__dirname + '/../routes/virtues.js');
 
   app.all('*', users.lookup);
 
@@ -27,6 +28,10 @@ function load(app, fn){
   app.post('/users/login', dbg, users.login);
   app.get('/users', dbg, users.index);
   app.get('/users/logout', dbg, users.logout);
+  app.put('/users', dbg, users.update);
+
+  app.get('/virtues', dbg, virtues.index);
+  app.post('/virtues', dbg, virtues.create);
 
   app.get('/entries/new', dbg, entries.new);
   app.post('/entries', dbg, entries.create);

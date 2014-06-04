@@ -3,6 +3,11 @@
 var traceur = require('traceur');
 var User = traceur.require(__dirname + '/../../app/models/user.js');
 
+exports.update = (req, res)=>{
+
+};
+
+
 exports.index = (req, res)=>{
   res.render('users/index', {title: 'Home'});
 };
