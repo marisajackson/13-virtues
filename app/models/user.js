@@ -7,6 +7,15 @@ var _ = require('lodash');
 
 class User {
 
+  updateVirtues(virtues){
+    this.virtues = [];
+    this.virtues = virtues;
+  }
+
+  save(fn){
+    users.save(this, ()=>fn());
+  }
+
   static register(obj, fn){
     users.findOne({email:obj.email}, (err,user)=>{
       if(user) {
