@@ -4,12 +4,12 @@ var traceur = require('traceur');
 var User = traceur.require(__dirname + '/../../app/models/user.js');
 
 exports.update = (req, res)=>{
-
+ //update virtues
 };
 
 
 exports.index = (req, res)=>{
-  res.render('users/index', {title: 'Home'});
+  res.render('users/index', {title: 'Home'}); //user object in res.locals
 };
 
 exports.new = (req, res)=>{
