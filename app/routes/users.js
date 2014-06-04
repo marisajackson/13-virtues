@@ -1,7 +1,7 @@
 'use strict';
 
 exports.index = (req, res)=>{
-  res.render('users/index');
+  res.render('users/index', {title: 'Home'});
 };
 
 exports.new = (req, res)=>{

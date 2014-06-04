@@ -4,8 +4,19 @@ block content
 
   .account_status.meta
     ul
-      li: a(href='#sign-in') Sign in
-      li: a(href='#register') Register
+      li: a#show-sign-in(href='') Sign in
+      li: a#show-registration(href='') Register
+
+    form#sign-in.form--account(action='/users/login' method='post' )
+      input(type='text' name='name-or-password' placeholder='name or password' autofocus=true)
+      input(type='text' name='password' placeholder='password')
+      button Sign In
+
+    form#register.form--account(action='/users' method='post')
+      input(type='text' name='name' placeholder='name' autofocus=true)
+      input(type='text' name='email' placeholder='email')
+      input(type='text' name='password' placeholder='password')
+      button Register
 
   .main--landing.meta
     .teaser-text.parchment--1
