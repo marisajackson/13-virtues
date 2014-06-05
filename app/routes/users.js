@@ -2,12 +2,19 @@
 
 var traceur = require('traceur');
 var User = traceur.require(__dirname + '/../../app/models/user.js');
+var Virtue = traceur.require(__dirname + '/../../app/models/virtue.js');
+// var _ = require('lodash');
 
 exports.update = (req, res)=>{
-  // res.locals.user.updateVirtues(req.body.virtues);//need whole list of virtues
-  // res.locals.user.save(()=>{
-  //   res.redirect('/');
-  // });
+  User.findByUserId(req.session.userId, user=>{
+    user.updateVirtues(req.body.virtue);
+    res.locals.user = user;
+    user.save(()=>{
+      Virtue.findAllVirtues(virtues=>{
+        res.render('virtues/index', {virtues:virtues});
+      });
+    });
+  });
 };
 
 

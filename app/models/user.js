@@ -7,9 +7,8 @@ var _ = require('lodash');
 
 class User {
 
-  updateVirtues(virtues){
-    this.virtues = [];
-    this.virtues = virtues;
+  updateVirtues(virtue){
+    this.virtues.push(virtue);
   }
 
   save(fn){

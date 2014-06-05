@@ -1,0 +1,14 @@
+h1 Current Virtues
+
+ul
+  each virtue in user.virtues
+    li= virtue
+
+
+  select#virtues(name=virtue)
+    each virtue in virtues
+      option= virtue.name
+  button#addToVirtues Add To Virtues
+
+  input#newVirtue(type='text' placeholder='New Virtue')
+  button#addVirtue Add Virtue

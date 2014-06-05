@@ -19,6 +19,23 @@ function ajax(url, type, data={}, success=r=>console.log(r), dataType='html'){
   function init(){
     $('#today').click(newEntry);
     $('#showEntries').click(showEntries);
+    $('#editVirtues').click(editVirtues);
+    $('#content').on('click', '#addVirtue', addVirtue);
+    $('#content').on('click', '#addToVirtues', addToVirtues);
+  }
+
+  function addToVirtues(){
+    var virtue = $('#virtues').val();
+    ajax('/users', 'put', {virtue:virtue}, html=>{
+      $('#content').empty().append(html);
+    });
+  }
+
+  function addVirtue(){
+    var virtue = $('#newVirtue').val();
+    ajax('/virtues', 'post', {virtue:virtue}, html=>{
+      $('#content').empty().append(html);
+    });
   }
 
   function newEntry(){
@@ -30,6 +47,12 @@ function ajax(url, type, data={}, success=r=>console.log(r), dataType='html'){
   function showEntries(){
     ajax('/entries/show', 'get', null, html=>{
       console.log(html);
+      $('#content').empty().append(html);
+    });
+  }
+
+  function editVirtues(){
+    ajax('/virtues', 'get', null, html=>{
       $('#content').empty().append(html);
     });
   }

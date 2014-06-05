@@ -7,7 +7,7 @@ var _ = require('lodash');
 class Virtue {
 
   static create(id, obj, fn){
-    var name = obj.name.trim().toLowerCase();
+    var name = obj.virtue.trim().toLowerCase();
     name = name.charAt(0).toUpperCase() + name.slice(1);
     virtues.findOne({name:name}, (err, v)=>{
       if(v){
