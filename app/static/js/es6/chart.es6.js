@@ -1,14 +1,19 @@
-/* global AmCharts */
+/* global AmCharts, ajax */
 /* jshint unused:false */
+
 
 (function() {
   'use strict';
 
   $(document).ready( () => {
-
+    $('#showGraph').click(showGraph);
   });
 
-
+  function showGraph(){
+    ajax('/entries/trends', 'get', null, jsonObj=>{
+      console.log(jsonObj);
+    }, 'json');
+  }
 
   var chartData = generateChartData();
   var chart = AmCharts.makeChart('chartdiv', {

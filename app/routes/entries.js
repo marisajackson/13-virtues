@@ -7,8 +7,7 @@ var moment = require('moment');
 exports.trends = (req, res)=>{
   var userId = res.locals.user._id;
   Entry.findByUserId(userId, entries=>{
-    console.log(entries);
-    res.render('entries/trends');
+    res.send(entries);
   });
 };
 
