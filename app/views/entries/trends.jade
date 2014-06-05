@@ -1,6 +1,7 @@
 // snippet page that displays graph
 
-#graph
+
+#chartdiv
 
 
 .main--virtue-list
@@ -14,3 +15,12 @@
     li
       h3 Justice
       p Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+
+
+
+block scripts
+  script(src='/js/vendor/jquery-2.1.1.js')
+  script(src='/js/es6/compiled/chart.js')
+  script(src='http://www.amcharts.com/lib/3/amcharts.js')
+  script(src='http://www.amcharts.com/lib/3/serial.js')
+  script(src='http://www.amcharts.com/lib/3/themes/patterns.js')
