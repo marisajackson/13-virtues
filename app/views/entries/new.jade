@@ -1,21 +1,26 @@
 //snippet page with journal entry page
 
 .main--post-page
-  time.time--post-page 2014-03-11
+  time.time--post-page= date
   .star-box--post-page
     p Rate Virtues
     ul.virtue-list--post-page
-      li.virtue__outer-box--post-page
-        ul#virtue-1.virtue__inner-box--post-page
-          li.virtue__name--post-page virtue 1
-          li.virtue__stars--post-page * * * * *
-      li.virtue__outer-box--post-page
-        ul#virtue-2.virtue__inner-box--post-page
-          li.virtue__name--post-page virtue 2
-          li.virtue__stars--post-page * * *
-      li.virtue__outer-box--post-page
-        ul#virtue-3.virtue__inner-box--post-page
-          li.virtue__name--post-page virtue 3
-          li.virtue__stars--post-page * *
-    textarea.text--post-page(type='text' name='entryText')
-    button Post
+      form(action='/entries', method='post')
+        each virtue in user.virtues
+          li.virtue__outer-box--post-page
+            ul.virtue__inner-box--post-page
+              li.virtue__name--post-page= virtue
+              li.virtue__stars--post-page
+                input.oneStar(type='radio', name=virtue, value=1)
+                span.stars *
+                input.twoStar(type='radio', name=virtue, value=2)
+                span.stars **
+                input.threeStar(type='radio', name=virtue, value=3)
+                span.stars ***
+                input.fourStar(type='radio', name=virtue, value=4)
+                span.stars ****
+                input.fiveStar(type='radio', name=virtue, value=5)
+                span.stars *****
+
+        textarea.text--post-page(type='text' name='content')
+        button Post

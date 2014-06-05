@@ -785,6 +785,8 @@ body {
 }
 
 html {
+  // background-image: url(/img/ben-franklin.jpg);
+  // background-size: cover;
   font-family: @lato;
   font-size: @wrist-base-font-size;
   line-height: @wrist-base-line-height;
@@ -795,7 +797,7 @@ html {
 }
 
 body {
-  background: hsl(43, 59%, 80%);
+  // background: hsl(43, 59%, 80%);
   padding: @wrist-lh / 1.5;
   @media @lap {
     padding: @lap-lh;
@@ -817,22 +819,20 @@ body {
 
 .account_status {
   display: inline-block;
+  max-width: @wrist-lh * 20;
   width: 100%;
   margin-bottom: @wrist-lh;
   li {
+    @li-bg: ivory;
+    background: @li-bg;
     float: left;
     height: @wrist-lh * 2;
-    width: 50%;
-    @media @lap {
-      line-height: @lap-lh * 2;
-    }
-  }
-  a {
-    background: #ccc;
-    display: block;
-    height: 100%;
-    width: 100%;
     line-height: @wrist-lh * 2;
+    width: 50%;
+    &:hover {
+      background: darken(@li-bg, 6deg);
+      cursor: pointer;
+    }
     @media @lap {
       line-height: @lap-lh * 2;
     }
@@ -840,15 +840,43 @@ body {
 }
 
 .parchment--1 {
+  @dark-ivory: darken(ivory, 4deg);
   background-size: cover;
-  background-image: url(/img/natural-paper.png);
+  background-image: linear-gradient(@dark-ivory, @dark-ivory), url(/img/natural-paper.png);
+}
+
+.darth-vader {
+  margin-bottom: @wrist-lh;
+  > h2 {
+    display: inline-block;
+    font-size: @wrist-fs * 1.5;
+    width: 44%;
+    vertical-align: middle;
+  }
+  > img {
+    display: inline-block;
+    max-width: @wrist-lh * 9;
+    padding-left: @wrist-lh;
+    vertical-align: middle;
+  }
+}
+
+.ben-franklin-2 {
+  // float: right;
+  padding-right: @wrist-lh;
+  max-width: @wrist-lh * 7;
 }
 
 .teaser-text {
-  padding: @wrist-lh;
+  display: inline-block;
+  max-width: @wrist-lh * 20;
   text-align: justify;
+  h2 {
+    margin-bottom: @wrist-lh;
+  }
   p {
     font-size: @wrist-fs * .84;
+    padding: @wrist-lh;
     &:first-letter {
       margin-left: @wrist-fs;
     }
@@ -858,7 +886,6 @@ body {
 .account-form--outer {
   margin: 0 auto;
   opacity: 0;
-  padding: @wrist-lh;
   position: absolute;
   text-align: center;
   text-overflow: hidden;
@@ -878,7 +905,9 @@ body {
   border: 4px solid @black;
   border-radius: 4px;
   margin: 0 auto;
-  width: 100%;
+  max-width: @wrist-lh * 18;
+  padding: @wrist-lh;
+  width: 91%;
   > input {
     display: block;
     border: 1px solid black;
@@ -900,13 +929,66 @@ body {
   }
 }
 
-// .form--account {
-//
-// }
-
 .show-modal {
   margin: auto;
   opacity: 1;
   transform: translateX(0) translateY(0) !important;
   transition: transform 300ms @ease-out-circ, opacity 600ms @ease-out-expo !important;
+}
+
+nav {
+  background: ivory;
+  margin-bottom: @wrist-lh;
+  @media @lap {
+    display: inline-block;
+    vertical-align: middle;
+    width: @lap-lh * 4;
+  }
+  > ul {
+    > li {
+      border: 1px solid red;
+      display: inline-block;
+      height: @wrist-lh * 2;
+      line-height: @wrist-lh * 2;
+      vertical-align: middle;
+      width: @wrist-lh * 6;
+    }
+  }
+}
+
+#content {
+  @media @lap {
+    display: inline-block;
+    vertical-align: middle;
+    width: calc(100% - (@lap-lh * 14));
+  }
+}
+
+.main--virtue-list {
+  > ul {
+    border: 1px solid red;
+    margin: 0 auto;
+    padding: @wrist-lh;
+    > li {
+      border: 1px solid green;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: @wrist-lh;
+      max-width: @wrist-lh * 27;
+      width: 100%;
+      > h3 {
+        font-style: oblique;
+        font-weight: normal;
+        margin-bottom: @wrist-lh / 4;
+        text-align: left;
+      }
+      > p {
+        text-align: justify;
+        @media lap {
+          text-align: left;
+        }
+      }
+    }
+  }
 }
