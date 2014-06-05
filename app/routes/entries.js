@@ -18,15 +18,17 @@ exports.new = (req, res)=>{
 };
 
 exports.create = (req, res)=>{
-  // var userId = res.locals.user._id;
-  // Entry.create(userId, req.body, (entry)=>{
-  //   res.redirect('');//should this be a res.send to ajax?
-  // });
+  var userId = res.locals.user._id;
+  Entry.create(userId, req.body, (entry)=>{
+    res.redirect('/users');
+  });
 };
 
 exports.show = (req, res)=>{
   var userId = res.locals.user._id;
   Entry.findByUserId(userId, (entries)=>{
-    res.render('entries/show', {entries:entries});
+    Entry.formatDates(entries, (records)=>{
+      res.render('entries/show', {entries:records});
+    });
   }); //show all entries and redirect
 };

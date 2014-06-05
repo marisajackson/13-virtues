@@ -1,23 +1,17 @@
 // snippet page that display all journal entries
 
 
-//jack
+
 .main--view-page
-  time.time--view-page
-  .star-box--view-page
-    p My Virtues
-    ul.virtue-list--view-page
-      li.virtue__outer-box--view-page
-        ul#virtue-1.virtue__inner-box--view-page
-          li.virtue__name--view-page Virtue 1
-          li.virtue__stars--view-page * * *
-      li.virtue__outer-box--view-page
-        ul#virtue-2.virtue__inner-box--view-page
-          li.virtue__name--view-page Virtue 2
-          li.virtue__stars--view-page * *
-      li.virtue__outer-box--view-page
-        ul#virtue-3.virtue-box__inner-box--view-page
-          li.virtue__name Virtue 3
-          li.virtue__stars * * * * *
-      li#virtue-average Average
-    p.text--view-page Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla perferendis, aut illo, eius, assumenda consequatur sint deleniti laudantium, nihil illum natus! Quasi neque ullam quas rerum quod, dolore obcaecati animi numquam non autem dolores tenetur dolor adipisci cumque voluptate minus, ipsam iure.
+  each entry in entries
+      time.time--view-page= entry.date
+      .star-box--view-page
+        p My Virtues
+        ul.virtue-list--view-page
+          each virtue in user.virtues
+            li.virtue__outer-box--view-page
+              ul.virtue__inner-box--view-page
+                li.virtue__name--view-page= virtue
+                li.virtue__stars--view-page= entry.virtues[virtue]
+          li#virtue-average= entry.avgRating
+        p.text--view-page= entry.content
