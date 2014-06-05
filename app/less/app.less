@@ -798,6 +798,8 @@ html {
 
 body {
   // background: hsl(43, 59%, 80%);
+  align-items: center;
+  display: flex;
   padding: @wrist-lh / 1.5;
   @media @lap {
     padding: @lap-lh;
@@ -807,8 +809,11 @@ body {
 .container {
   border: 1px solid black;
   margin: 0 auto;
-  width: 100%;
   position: relative;
+  width: 100%;
+  @media @lap {
+    max-width: @lap-lh * 50;
+  }
 }
 
 .meta {
@@ -842,7 +847,7 @@ body {
 .parchment--1 {
   @dark-ivory: darken(ivory, 4deg);
   background-size: cover;
-  background-image: linear-gradient(@dark-ivory, @dark-ivory), url(/img/natural-paper.png);
+  background-image: linear-gradient(ivory, ivory), url(/img/natural-paper.png);
 }
 
 .darth-vader {
@@ -871,12 +876,20 @@ body {
   display: inline-block;
   max-width: @wrist-lh * 20;
   text-align: justify;
+  @media @lap {
+    max-width: @lap-lh * 20;
+  }
   h2 {
     margin-bottom: @wrist-lh;
   }
   p {
     font-size: @wrist-fs * .84;
     padding: @wrist-lh;
+    @media @lap {
+      font-size: @lap-fs * .84;
+      line-height: @lap-lh * 1;
+      padding: @lap-lh;
+    }
     &:first-letter {
       margin-left: @wrist-fs;
     }
@@ -942,16 +955,21 @@ nav {
   @media @lap {
     display: inline-block;
     vertical-align: middle;
-    width: @lap-lh * 4;
+    width: @lap-lh * 6;
   }
   > ul {
     > li {
-      border: 1px solid red;
+      // border: 1px solid red;
       display: inline-block;
       height: @wrist-lh * 2;
       line-height: @wrist-lh * 2;
+      max-width: @wrist-lh * 6;
       vertical-align: middle;
-      width: @wrist-lh * 6;
+      width: 100%;
+      &:hover {
+        background: darken(ivory, 2.5deg);
+        cursor: pointer;
+      }
     }
   }
 }
@@ -959,18 +977,19 @@ nav {
 #content {
   @media @lap {
     display: inline-block;
+    padding-left: @lap-lh / 2;
     vertical-align: middle;
-    width: calc(100% - (@lap-lh * 14));
+    width: calc(100% - (@lap-lh * 20));
   }
 }
 
 .main--virtue-list {
   > ul {
-    border: 1px solid red;
+    // border: 1px solid red;
     margin: 0 auto;
     padding: @wrist-lh;
     > li {
-      border: 1px solid green;
+      // border: 1px solid green;
       display: block;
       margin-left: auto;
       margin-right: auto;
