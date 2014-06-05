@@ -51,6 +51,17 @@ class Entry {
     fn(formatEntries);
   }
 
+  static getPropertyNames(entries, fn){
+    var newArray = entries.map(entry=>{
+      entry.virtueNames = [];
+      Object.keys(entry.virtues).map(v=>{
+        entry.virtueNames.push(v);
+      });
+      return entry;
+    });
+    fn(newArray);
+  }
+
 }
 
 module.exports = Entry;
