@@ -7,9 +7,9 @@ block content
       li#show-sign-in Sign in
       li#show-registration Register
 
-  form#sign-in.account-form--outer(action='/users/login' method='post' )
+  form#sign-in.account-form--outer(action='/users/login' method='post')
     .account-form--inner
-      input(type='text' name='name-or-password' placeholder='name or email' autofocus=true)
+      input(type='text' name='name-or-password' placeholder='email' autofocus=true)
       input(type='password' name='password' placeholder='password')
       button Sign In
 
@@ -24,5 +24,13 @@ block content
     .darth-vader
       h2 13 Virtues
       img.ben-franklin-2(src='/img/ben-franklin-2.svg')
+      .main--virtue-list
+        ul
+          li
+            h3 Temperance,
+          li
+            h3 Wisdom,
+          li
+            h3 Justice...
     .teaser-text
       p.parchment--1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae doloremque magnam ea aspernatur, id obcaecati! Quod unde alias consectetur doloremque adipisci ipsa voluptatem at error, beatae quibusdam quam animi consequuntur.
