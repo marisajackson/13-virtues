@@ -17,12 +17,19 @@ function ajax(url, type, data={}, success=r=>console.log(r), dataType='html'){
   $(document).ready(init);
 
   function init(){
-    ('#today').click(newEntry);
+    $('#today').click(newEntry);
+    $('#showEntries').click(showEntries);
   }
 
   function newEntry(){
     ajax('/entries/new', 'get', null, html=>{
-      ('#main-content').empty().append(html);
+      $('#content').empty().append(html);
+    });
+  }
+
+  function showEntries(){
+    ajax('/entries/show', 'get', null, html=>{
+      $('#content').empty().append(html);
     });
   }
 

@@ -1,7 +1,7 @@
 'use strict';
 
-// var traceur = require('traceur');
-// var Entry = traceur.require(__dirname + '/../../app/models/entry.js');
+var traceur = require('traceur');
+var Entry = traceur.require(__dirname + '/../../app/models/entry.js');
 var moment = require('moment');
 
 exports.trends = (req, res)=>{
@@ -25,8 +25,8 @@ exports.create = (req, res)=>{
 };
 
 exports.show = (req, res)=>{
-  // var userId = res.locals.user._id;
-  // Entry.findByUserId(userId, (entries)=>{
-  //   res.send(entries);
-  // }); //show all entries and redirect
+  var userId = res.locals.user._id;
+  Entry.findByUserId(userId, (entries)=>{
+    res.render('entries/show', {entries:entries});
+  }); //show all entries and redirect
 };
