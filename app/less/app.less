@@ -177,6 +177,8 @@ KERN=
 @reenie-beanie: "Reenie Beanie", cursive;
 @vollkorn: "Vollkorn", serif;
 
+@lato: 'Lato', sans-serif;
+
 
 /* ======================================================================
 
@@ -752,7 +754,7 @@ MAIN=
 ========================================================================= */
 
 
-@palm: ~"all and (min-width: 33em)";
+// @palm: ~"all and (min-width: 33em)";
 @lap: ~"all and (min-width: 40em)";
 // @desk: ~"all and (min-width: 50em)";
 // @wall: ~"all and (min-width: 60em)";
@@ -774,6 +776,8 @@ MAIN=
 
 // @edit();
 
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
 html,
 body {
   height: 100%;
@@ -781,6 +785,9 @@ body {
 }
 
 html {
+  background-image: url(/img/ben-franklin.jpg);
+  background-size: cover;
+  font-family: @lato;
   font-size: @wrist-base-font-size;
   line-height: @wrist-base-line-height;
   @media @lap {
@@ -790,11 +797,18 @@ html {
 }
 
 body {
-  background: hsl(43, 59%, 80%);
-  padding: @wrist-lh;
+  // background: hsl(43, 59%, 80%);
+  padding: @wrist-lh / 1.5;
   @media @lap {
     padding: @lap-lh;
   }
+}
+
+.container {
+  border: 1px solid black;
+  margin: 0 auto;
+  width: 100%;
+  position: relative;
 }
 
 .meta {
@@ -802,7 +816,6 @@ body {
   margin-right: auto;
   text-align: center;
 }
-
 
 .account_status {
   display: inline-block;
@@ -836,7 +849,70 @@ body {
 .teaser-text {
   padding: @wrist-lh;
   text-align: justify;
+  h2 {
+    margin-bottom: @wrist-lh;
+  }
   p {
     font-size: @wrist-fs * .84;
+    &:first-letter {
+      margin-left: @wrist-fs;
+    }
   }
+}
+
+.account-form--outer {
+  margin: 0 auto;
+  opacity: 0;
+  position: absolute;
+  text-align: center;
+  text-overflow: hidden;
+  width: 100%;
+}
+
+#sign-in {
+  transform: translateX(-100.5vw) translateY(45vh);
+}
+
+#register {
+  transform: translateX(-100.5vw) translateY(-45vh);
+}
+
+.account-form--inner {
+  background: ivory;
+  border: 4px solid @black;
+  border-radius: 4px;
+  margin: 0 auto;
+  max-width: @wrist-lh * 18;
+  padding: @wrist-lh;
+  width: 91%;
+  > input {
+    display: block;
+    border: 1px solid black;
+    height: @wrist-lh * 2;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: @wrist-lh / 2;
+    padding-right: @wrist-lh / 3;
+    text-align: right;
+    max-width: @wrist-lh * 11;
+    width: 100%;
+  }
+  > button {
+    display: block;
+    font-style: oblique;
+    float: right;
+    padding: @wrist-lh * .5;
+    width: @wrist-lh * 4.5;
+  }
+}
+
+// .form--account {
+//
+// }
+
+.show-modal {
+  margin: auto;
+  opacity: 1;
+  transform: translateX(0) translateY(0) !important;
+  transition: transform 300ms @ease-out-circ, opacity 600ms @ease-out-expo !important;
 }

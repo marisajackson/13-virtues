@@ -6,12 +6,14 @@
     $('#show-registration').click(showRegistration);
   });
 
-  function showSignIn() {
-    alert('sign-in form!');
+  function showSignIn (e) {
+    $('#sign-in').toggleClass('show-modal');
+    e.preventDefault();
   }
 
-  function showRegistration() {
-    alert('registration form!');
+  function showRegistration (e) {
+    $('#register').toggleClass('show-modal');
+    e.preventDefault();
   }
 
 }());
