@@ -4,10 +4,10 @@ var traceur = require('traceur');
 var User = traceur.require(__dirname + '/../../app/models/user.js');
 
 exports.update = (req, res)=>{
-  res.locals.user.updateVirtues(req.body.virtues);//need whole list of virtues
-  res.locals.user.save(()=>{
-    res.redirect('/');
-  });
+  // res.locals.user.updateVirtues(req.body.virtues);//need whole list of virtues
+  // res.locals.user.save(()=>{
+  //   res.redirect('/');
+  // });
 };
 
 

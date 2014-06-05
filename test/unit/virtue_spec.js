@@ -33,7 +33,7 @@ describe('Virtue', function(){
       global.nss.db.collection('virtues').drop(function(){
         User.register({email: 'sue@sue.com', password: '1234', name: 'Sue'}, function(user){
           sue = user;
-          Virtue.create({name: 'Temperance', creatorId: sue._id}, function(virtue){
+          Virtue.create(sue._id, {name: 'Temperance'}, function(virtue){
             v1 = virtue;
             done();
           });
@@ -44,8 +44,8 @@ describe('Virtue', function(){
 
   describe('.create', function(){
     it('should successfully create a virtue object', function(done){
-      var obj = {name: 'Frugality', creatorId: sue._id};
-      Virtue.create(obj, function(v){
+      var obj = {name: 'Frugality'};
+      Virtue.create(sue._id, obj, function(v){
         expect(v).to.be.ok;
         expect(v).to.be.an.instanceof(Virtue);
         expect(v.creatorId).to.deep.equal(sue._id);
@@ -56,8 +56,8 @@ describe('Virtue', function(){
 
 
     it('should NOT create a virtue', function(done){
-      var obj = {name: ' TEMPERaNCE   ', creatorId: sue._id};
-      Virtue.create(obj, function(v){
+      var obj = {name: ' TEMPERaNCE   '};
+      Virtue.create(sue._id, obj, function(v){
         expect(v).to.be.null;
         done();
       });

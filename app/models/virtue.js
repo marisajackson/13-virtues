@@ -6,7 +6,7 @@ var _ = require('lodash');
 
 class Virtue {
 
-  static create(obj, fn){
+  static create(id, obj, fn){
     var name = obj.name.trim().toLowerCase();
     name = name.charAt(0).toUpperCase() + name.slice(1);
     virtues.findOne({name:name}, (err, v)=>{
@@ -15,12 +15,18 @@ class Virtue {
       }else{
         var virtue = new Virtue();
         virtue.name = name;
-        virtue.creatorId = obj.creatorId;
+        virtue.creatorId = id;
         virtues.save(virtue, ()=>{
           virtue = _.create(Virtue.prototype, virtue);
           fn(virtue);
         });
       }
+    });
+  }
+
+  static findAllVirtues(fn){
+    virtues.find({}).toArray((err, virtues)=>{
+      fn(virtues);
     });
   }
 

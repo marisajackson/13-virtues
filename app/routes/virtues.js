@@ -1,9 +1,19 @@
 'use strict';
 
+// var traceur = require('traceur');
+// var Virtue = traceur.require(__dirname + '/../../app/models/virtue.js');
+
 exports.index = (req, res)=>{
-  //need virtues
+  // Virtues.findAllVirtues(virtues=>{
+  //   res.send(virtues);//sending back to ajax or need to render partial
+  // });
 };
 
 exports.create = (req, res)=>{
-  //create a virtue 
+  // var userId = res.locals.user._id;
+  // Virtue.create(userId, req.body, ()=>{
+  //   Virtue.findAllVirtues(virtues=>{
+  //     res.send(virtues);//sending back to ajax or need to render partial
+  //   });
+  // });
 };
