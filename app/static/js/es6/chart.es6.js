@@ -7,7 +7,8 @@
   'use strict';
 
   $(document).ready( () => {
-    $('#showGraph').click(showGraph);
+    showGraph();
+    // $('#showGraph').click(showGraph);
   });
 
   function showGraph(){
@@ -83,28 +84,6 @@
     }
 
 
-  //generate some random data, quite different range
-    // function generateChartData() {
-    //   var chartData = [];
-    //   var firstDate = new Date();
-    //   firstDate.setDate(firstDate.getDate() - 5);
-    //
-    //   for (var i = 0; i < 1000; i++) {
-    //       // we create date objects here. In your data, you can have date strings
-    //       // and then set format of your dates using chart.dataDateFormat property,
-    //       // however when possible, use date objects, as this will speed up chart rendering.
-    //       var newDate = new Date(firstDate);
-    //       newDate.setDate(newDate.getDate() + i);
-    //
-    //       var visits = Math.round(Math.random() * (40 + i / 5)) + 20 + i;
-    //
-    //       chartData.push({
-    //           date: newDate,
-    //           avgRating: visits
-    //       });
-    //   }
-    //   return chartData;
-    // }
   }
 
 }());

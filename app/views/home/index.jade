@@ -9,7 +9,7 @@ block content
 
   form#sign-in.account-form--outer(action='/users/login' method='post' )
     .account-form--inner
-      input(type='text' name='name-or-password' placeholder='name or email' autofocus=true)
+      input(type='text' name='email' placeholder='name or email' autofocus=true)
       input(type='password' name='password' placeholder='password')
       button Sign In
 
@@ -25,4 +25,10 @@ block content
       h2 13 Virtues
       img.ben-franklin-2(src='/img/ben-franklin-2.svg')
     .teaser-text
-      p.parchment--1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae doloremque magnam ea aspernatur, id obcaecati! Quod unde alias consectetur doloremque adipisci ipsa voluptatem at error, beatae quibusdam quam animi consequuntur.
+      p.parchment--1
+        blockquote
+          span.quote "If you would not be forgotten,
+          span.quote As soon as you are dead and rotten,
+          span.quote Either write things worthy reading,
+          span.quote Or do things worth the writing."
+        span.quote - Benjamin Franklin
