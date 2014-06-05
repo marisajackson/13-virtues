@@ -1,6 +1,7 @@
 'use strict';
 
 var entries = global.nss.db.collection('entries');
+var moment = require('moment');
 // var Mongo = require('mongodb');
 var _ = require('lodash');
 
@@ -10,7 +11,7 @@ class Entry {
     var total = 0;
     var indexTotal = 0;
     Object.keys(virtues).map(function(v, i){
-      total += virtues[v];
+      total += virtues[v] * 1;
       indexTotal++;
     });
     var avg = total/indexTotal;
@@ -18,14 +19,16 @@ class Entry {
   }
 
   static create(userId, obj, fn){
+    var content = _.pick(obj, 'content');
+    delete obj.content;
 
     var entry = new Entry();
     entry.userId = userId;
     entry.date = new Date();
-    entry.content = obj.content;
-    entry.virtues = obj.virtues;
+    entry.content = content.content;
+    entry.virtues = obj;
 
-    var avg = entry.findAverageRating(obj.virtues);
+    var avg = entry.findAverageRating(obj);
     entry.avgRating = avg;
 
     entries.save(entry, ()=>{
@@ -38,6 +41,14 @@ class Entry {
     entries.find({userId:userId}).toArray((err, records)=>{
       fn(records);
     });
+  }
+
+  static formatDates(entries, fn){
+    var formatEntries = entries.map(e=>{
+      e.date = moment(e.date).format('MMMM Do YYYY');
+      return e;
+    });
+    fn(formatEntries);
   }
 
 }

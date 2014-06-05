@@ -4,22 +4,23 @@ block content
 
   .account_status.meta
     ul
-      li: a#show-sign-in(href='') Sign in
-      li: a#show-registration(href='') Register
+      li#show-sign-in Sign in
+      li#show-registration Register
 
   form#sign-in.account-form--outer(action='/users/login' method='post' )
     .account-form--inner
-      input(type='text' name='name-or-password' placeholder='name or password' autofocus=true)
-      input(type='text' name='password' placeholder='password')
+      input(type='text' name='name-or-password' placeholder='name or email' autofocus=true)
+      input(type='password' name='password' placeholder='password')
       button Sign In
 
   form#register.account-form--outer(action='/users' method='post')
     .account-form--inner
       input(type='text' name='name' placeholder='name')
       input(type='text' name='email' placeholder='email')
-      input(type='text' name='password' placeholder='password')
+      input(type='password' name='password' placeholder='password')
       button Register
 
   .main--landing-page.meta
-    .teaser-text.parchment--1
-      p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae doloremque magnam ea aspernatur, id obcaecati! Quod unde alias consectetur doloremque adipisci ipsa voluptatem at error, beatae quibusdam quam animi consequuntur.
+    .teaser-text
+      h2 13 Virtues
+      p.parchment--1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae doloremque magnam ea aspernatur, id obcaecati! Quod unde alias consectetur doloremque adipisci ipsa voluptatem at error, beatae quibusdam quam animi consequuntur.
