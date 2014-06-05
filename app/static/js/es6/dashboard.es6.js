@@ -46,7 +46,6 @@ function ajax(url, type, data={}, success=r=>console.log(r), dataType='html'){
 
   function showEntries(){
     ajax('/entries/show', 'get', null, html=>{
-      console.log(html);
       $('#content').empty().append(html);
     });
   }
