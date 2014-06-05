@@ -8,10 +8,10 @@
       .star-box--view-page
         p My Virtues
         ul.virtue-list--view-page
-          each virtue in user.virtues
+          each virtue in entry.virtueNames
             li.virtue__outer-box--view-page
               ul.virtue__inner-box--view-page
                 li.virtue__name--view-page= virtue
                 li.virtue__stars--view-page= entry.virtues[virtue]
-          li#virtue-average.virtue-average Average: #{entry.avgRating}
+        p#virtue-average.virtue-average Average Star Rating: #{entry.avgRating}
         p.text--view-page= entry.content

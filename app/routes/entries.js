@@ -28,7 +28,10 @@ exports.show = (req, res)=>{
   var userId = res.locals.user._id;
   Entry.findByUserId(userId, (entries)=>{
     Entry.formatDates(entries, (records)=>{
-      res.render('entries/show', {entries:records});
+      Entry.getPropertyNames(records, (r)=>{
+        console.log(r);
+        res.render('entries/show', {entries:r});
+      });
     });
   }); //show all entries and redirect
 };
