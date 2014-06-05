@@ -4,12 +4,17 @@ html
     meta(charset='utf-8')
     title= title
     link(href='/less/app.css', rel='stylesheet')
+    link(href='/css/chart.css', rel='stylesheet')
   body
 
     .container.meta
       block content
 
     script(src='/js/vendor/jquery-2.1.1.js')
+    script(src='/js/es6/compiled/chart.js')
+    script(src='http://www.amcharts.com/lib/3/amcharts.js')
+    script(src='http://www.amcharts.com/lib/3/serial.js')
+    script(src='http://www.amcharts.com/lib/3/themes/patterns.js')
     script(src='/js/vendor/lodash-2.4.1.js')
     script(src='/js/vendor/moment-2.6.0.js')
     script(src='/js/vendor/traceur.js')

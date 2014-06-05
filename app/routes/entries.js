@@ -1,14 +1,15 @@
 'use strict';
 
-// var traceur = require('traceur');
-// var Entry = traceur.require(__dirname + '/../../app/models/entry.js');
+var traceur = require('traceur');
+var Entry = traceur.require(__dirname + '/../../app/models/entry.js');
 // var moment = require('moment');
 
 exports.trends = (req, res)=>{
-  // var userId = res.locals.user._id;
-  // Entry.findByUserId(userId, entries=>{
-  //   res.render('entires/trends', {entries:entries});
-  // });
+  var userId = res.locals.user._id;
+  Entry.findByUserId(userId, entries=>{
+    console.log(entries);
+    res.render('entries/trends');
+  });
 };
 
 exports.new = (req, res)=>{
