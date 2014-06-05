@@ -6,12 +6,12 @@
   each entry in entries
       time.time--view-page= entry.date
       .star-box--view-page
-        p My Virtues
-        ul.virtue-list--view-page
-          each virtue in user.virtues
-            li.virtue__outer-box--view-page
-              ul.virtue__inner-box--view-page
-                li.virtue__name--view-page= virtue
-                li.virtue__stars--view-page= entry.virtues[virtue]
-          li#virtue-average Average Star Rating: #{entry.avgRating}
+        //- p My Virtues
+        //- ul.virtue-list--view-page
+        //-   each virtue in user.virtues
+        //-     li.virtue__outer-box--view-page
+        //-       ul.virtue__inner-box--view-page
+        //-         li.virtue__name--view-page= virtue
+        //-         li.virtue__stars--view-page= entry.virtues[virtue]
+        p#virtue-average Average Star Rating: #{entry.avgRating}
         p.text--view-page= entry.content
