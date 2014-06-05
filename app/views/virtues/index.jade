@@ -1,14 +1,15 @@
-h1 Current Virtues
+h1.current-virtues Current Virtues
 
-ul
+ul.virtues-list--edit-virtues-page
   each virtue in user.virtues
     li= virtue
 
-
-  select#virtues(name=virtue)
-    each virtue in virtues
-      option= virtue.name
-  button#addToVirtues Add To Virtues
-
-  input#newVirtue(type='text' placeholder='New Virtue')
-  button#addVirtue Add Virtue
+.select-virtues-box
+  .select-virtues-box__inner
+    select#virtues(name=virtue)
+      each virtue in virtues
+        option= virtue.name
+    button#addToVirtues Add To Virtues
+  .select-virtues-box__inner
+    input#newVirtue(type='text' placeholder='New Virtue')
+    button#addVirtue Add Virtue
